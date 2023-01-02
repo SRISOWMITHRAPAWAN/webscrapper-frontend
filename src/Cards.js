@@ -39,7 +39,7 @@ else{
     const getProductData = async ()=>{
       try{
           const data=await axios.get(
-              "https://final-webscrapper.herokuapp.com/scrapdata/get");
+              "https://webscrapper-backend.onrender.com/scrapdata/get");
               console.log(data.data);
               setProduct(data.data);
       }
