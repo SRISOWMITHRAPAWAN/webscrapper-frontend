@@ -9,6 +9,7 @@ import Typography from '@mui/material/Typography';
 import {useEffect,useState} from 'react';
 import axios from 'axios';
 import {useFormik} from "formik"
+import Carousal from './carousal';
 
 
 export default function Cards(){
@@ -52,7 +53,8 @@ else{
   },[]);
 return(
 <div className="container">
-     <form className="d-flex mb-5" onSubmit={formik.handleSubmit} >
+<Carousal />
+     <form className="d-flex mb-5" onSubmit={formik.handleSubmit} style={{marginTop:"2rem"}} >
       <input
       className="form-control mt-5"
       name="title"

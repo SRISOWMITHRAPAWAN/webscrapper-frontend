@@ -10,6 +10,7 @@ import { BrowserRouter, Route ,Routes ,Link} from 'react-router-dom';
 
 
 
+
 function App() {
 
   return (
@@ -18,6 +19,7 @@ function App() {
 
 <div className='titlebar'>
 <span style={{color:"white"}}>PRICE<span style={{color:"gold"}}> HISTORY</span></span>
+
 
 </div>
 
