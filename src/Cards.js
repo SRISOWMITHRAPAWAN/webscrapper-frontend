@@ -46,6 +46,7 @@ else{
       }
       catch(err){
           console.log(err)
+          alert("something went wrong please reload");
       }
   }
   useEffect(()=>{
@@ -76,7 +77,7 @@ return(
         
 
       </div><br></br>
-      <div className="products-wrapper">
+   {product? <div className="products-wrapper">
     {product.map((item)=>{
         return(
             <Card sx={{ maxWidth: 345 }} >
@@ -106,7 +107,7 @@ return(
     </Card>
         )
     })}
-    </div>
+    </div>:<>loading.......</>}
 </div>
 )
 
