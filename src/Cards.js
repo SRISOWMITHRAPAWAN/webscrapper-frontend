@@ -48,6 +48,7 @@ else{
               "https://webscrapper-backend.onrender.com/scrapdata/get");
               console.log(data.data);
               setProduct(data.data);
+            
               
       }
       catch(err){
@@ -85,7 +86,7 @@ return(
         
 
       </div><br></br>
-   {setProducts==([])?<></>:<div style={{border:"1px solid",paddingTop:"3rem",marginBottom:"5rem",borderRadius:"2rem",textAlign:"center"}}>YOUR SEARCH RESULT<div className="products-wrapper">
+   {!setProducts?<></>:<div style={{border:"1px solid",paddingTop:"3rem",marginBottom:"5rem",borderRadius:"2rem",textAlign:"center"}}>YOUR SEARCH RESULT<div className="products-wrapper">
     {products.map((item)=>{
         return(
           <>
@@ -121,7 +122,7 @@ return(
     })}
     </div>
     </div>}
-    <div className="products-wrapper">
+   {!setProduct?<>please reload</>: <div style={{marginBottom:"5rem",textAlign:"center",fontSize:"5rem"}}>All products<div className="products-wrapper">
     {product.map((item)=>{
         return(
             <Card sx={{ maxWidth: 345 }} >
@@ -152,6 +153,7 @@ return(
         )
     })}
     </div>
+    </div>}
 </div>
 )
 
