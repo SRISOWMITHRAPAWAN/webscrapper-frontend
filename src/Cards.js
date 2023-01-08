@@ -43,14 +43,17 @@ else{
               "https://webscrapper-backend.onrender.com/scrapdata/get");
               console.log(data.data);
               setProduct(data.data);
+              
       }
       catch(err){
           console.log(err)
+          window.location.reload();
           alert("something went wrong please reload");
       }
   }
   useEffect(()=>{
       getProductData();
+      
   },[]);
 return(
 <div className="container">
@@ -77,7 +80,7 @@ return(
         
 
       </div><br></br>
-   {product? <div className="products-wrapper">
+   {!product?<>loading.......</>: <div className="products-wrapper">
     {product.map((item)=>{
         return(
             <Card sx={{ maxWidth: 345 }} >
@@ -107,7 +110,7 @@ return(
     </Card>
         )
     })}
-    </div>:<>loading.......</>}
+    </div>}
 </div>
 )
 
