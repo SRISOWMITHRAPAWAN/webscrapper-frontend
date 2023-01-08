@@ -40,12 +40,12 @@ else{
     
     // const[search,setSearch]=useState("");
 
-
+ 
 
     const getProductData = async ()=>{
       try{
           const data=await axios.get(
-              "https://webscrapper-backend.onrender.com/scrapdata/get");
+              "https://webscrapper-backend-new.onrender.com/scrapdata/get");
               console.log(data.data);
               setProduct(data.data);
             
