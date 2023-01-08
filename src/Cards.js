@@ -66,7 +66,7 @@ else{
 return(
 <div className="container">
 <Carousal />
-     <form className="d-flex mb-5" onSubmit={formik.handleSubmit} style={{marginTop:"2rem"}} >
+    {getProductData? <form className="d-flex mb-5" onSubmit={formik.handleSubmit} style={{marginTop:"2rem"}} >
       <input
       className="form-control mt-5"
       name="title"
@@ -79,7 +79,7 @@ return(
       />
       <button className="btn btn-outline-success mt-5">Search</button>
       
-      </form>
+      </form>:<>REFRESH AND TRY AGAIN</>}
       <div style={{border:"2px solid red",padding:"5px",borderRadius:"5px"}}>NOTE:ENTER THE CORRECT NAME
         PLEASE FOLLOW THE BELOW ORDER FOR SEARCH INCLUEDE BRACKETS<br></br>
         APPLE iPhone 14 plus (red, 128 GB)<br></br>
