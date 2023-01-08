@@ -14,6 +14,8 @@ import Carousal from './carousal';
 
 export default function Cards(){
     const[product,setProduct]=useState([]);
+    const[products,setProducts]=useState([]);
+
 const formik = useFormik({
 initialValues:{
 title : ""
@@ -22,10 +24,13 @@ onSubmit : (values)=>{
 
     const arr = product.filter((x)=>x.title===values.title);
 if(arr.length>0){
-   setProduct(arr);
+   setProducts(arr);
 }
 else{
+  
     alert("enter correct product name");
+    window.location.reload();
+    
 }
 
 //else if(item.name.toLowerCase().includes(search.toLoweCase()))
@@ -80,7 +85,43 @@ return(
         
 
       </div><br></br>
-   {!product?<>loading.......</>: <div className="products-wrapper">
+   {setProducts==([])?<></>:<div style={{border:"1px solid",paddingTop:"3rem",marginBottom:"5rem",borderRadius:"2rem",textAlign:"center"}}>YOUR SEARCH RESULT<div className="products-wrapper">
+    {products.map((item)=>{
+        return(
+          <>
+          <div style={{marginBottom:"10rem"}}>
+            <Card sx={{ maxWidth: 345 }} >
+      <CardMedia
+        component="img"
+        height="160"
+        image={item.imgurl}
+        
+      />
+      <CardContent>
+        <Typography gutterBottom variant="h5" component="div">
+          {item.website}
+        </Typography>
+        <Typography gutterBottom variant="h5" component="div">
+          {item.title}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+         {item.price}
+        </Typography>
+        <Typography variant="body2" color="text.secondary">
+         {item.rating}
+        </Typography>
+      </CardContent>
+      <CardActions>
+     
+      </CardActions>
+    </Card>
+    </div>
+    </>
+        )
+    })}
+    </div>
+    </div>}
+    <div className="products-wrapper">
     {product.map((item)=>{
         return(
             <Card sx={{ maxWidth: 345 }} >
@@ -110,7 +151,7 @@ return(
     </Card>
         )
     })}
-    </div>}
+    </div>
 </div>
 )
 
