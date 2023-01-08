@@ -48,7 +48,7 @@ else{
       catch(err){
           console.log(err)
           window.location.reload();
-          alert("something went wrong please reload");
+         
       }
   }
   useEffect(()=>{
