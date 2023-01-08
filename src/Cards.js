@@ -15,7 +15,12 @@ import Carousal from './carousal';
 export default function Cards(){
     const[product,setProduct]=useState([]);
     const[products,setProducts]=useState([]);
-
+  //   const[pro,setPro]=useState(true);
+  //   setTimeout(function(){
+     
+  //     window.location.reload(!setPro());
+  //  }, 5000);
+  // setTimeout(function () { window.location.reload(1); }, 5000);
 const formik = useFormik({
 initialValues:{
 title : ""
@@ -61,12 +66,18 @@ else{
          
       }
   }
+  const reloadCount = sessionStorage.getItem('reloadCount');
   useEffect(()=>{
       getProductData();
-     
+      if(reloadCount < 2) {
+        sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+        window.location.reload();
+      } else {
+        sessionStorage.removeItem('reloadCount');
+      }
      
       
-  },[setProduct]);
+  },[]);
 
 return(
 <div className="container">
