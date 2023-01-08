@@ -59,8 +59,10 @@ else{
   }
   useEffect(()=>{
       getProductData();
+    
+     
       
-  },[]);
+  },[setProduct]);
 return(
 <div className="container">
 <Carousal />
