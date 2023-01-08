@@ -43,9 +43,12 @@ else{
  
 
     const getProductData = async ()=>{
+      
       try{
+        
           const data=await axios.get(
               "https://webscrapper-backend-new.onrender.com/scrapdata/get");
+              
               console.log(data.data);
               setProduct(data.data);
             
@@ -53,16 +56,18 @@ else{
       }
       catch(err){
           console.log(err)
+          alert("reload....")
           window.location.reload();
          
       }
   }
   useEffect(()=>{
       getProductData();
-    
+     
      
       
   },[setProduct]);
+
 return(
 <div className="container">
 <Carousal />
@@ -88,7 +93,7 @@ return(
         
 
       </div><br></br>
-   {!setProducts?<></>:<div style={{border:"1px solid",paddingTop:"3rem",marginBottom:"5rem",borderRadius:"2rem",textAlign:"center"}}>YOUR SEARCH RESULT<div className="products-wrapper">
+   {!getProductData?<>please Refresh</>:<div style={{border:"1px solid",paddingTop:"3rem",marginBottom:"5rem",borderRadius:"2rem",textAlign:"center"}}>YOUR SEARCH RESULT<div className="products-wrapper">
     {products.map((item)=>{
         return(
           <>
