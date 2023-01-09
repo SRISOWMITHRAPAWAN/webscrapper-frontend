@@ -69,10 +69,12 @@ else{
   const reloadCount = sessionStorage.getItem('reloadCount');
   useEffect(()=>{
       getProductData();
-      if(reloadCount <= 7) {
+     
+      if(reloadCount < 4) {
         
         sessionStorage.setItem('reloadCount', String(reloadCount + 1));
-        window.location.reload();
+        setInterval(function(){window.location.reload();},5000);
+        // window.location.reload();
       } else {
         sessionStorage.removeItem('reloadCount');
       }
