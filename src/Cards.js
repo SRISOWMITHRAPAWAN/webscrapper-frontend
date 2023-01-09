@@ -60,8 +60,16 @@ else{
               
       }
       catch(err){
+        const reloadCount = sessionStorage.getItem('reloadCount');
           console.log(err)
-          alert("reload....")
+          if(reloadCount < 4) {
+            sessionStorage.setItem('reloadCount', String(reloadCount + 1));
+            setInterval(function(){window.location.reload();},5000);
+            // window.location.reload();
+          } else {
+            sessionStorage.removeItem('reloadCount');
+          }
+          alert("please reload....")
           window.location.reload();
          
       }
@@ -71,7 +79,6 @@ else{
       getProductData();
      
       if(reloadCount < 4) {
-        
         sessionStorage.setItem('reloadCount', String(reloadCount + 1));
         setInterval(function(){window.location.reload();},5000);
         // window.location.reload();
