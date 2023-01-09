@@ -78,7 +78,7 @@ else{
   useEffect(()=>{
       getProductData();
      
-      if(reloadCount < 4) {
+      if(reloadCount < 3) {
         sessionStorage.setItem('reloadCount', String(reloadCount + 1));
         setInterval(function(){window.location.reload();},5000);
         // window.location.reload();
